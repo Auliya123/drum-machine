@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const SONG = {
+        Q: "Heater 1",
+        W: "Heater 2",
+        E: "Heater 3",
+        A: "Heater 4",
+        S: "Clap",
+        D: "Open HH",
+        Z: "Kick n' Hat",
+        X: "Kick",
+        C: "Closed HH",
+      };
+
+      function playDrum(id) {
+        var song = SONG[id];
+        var sound = document.getElementById(id);
+        sound.play();
+        document.getElementById("display").innerHTML = song;
+      }
+
+      window.document.onkeyup = function (event) {
+        var key = event.key.toUpperCase();
+
+        playDrum(key);
+      };
+    </script>
+  </head>
+
+  <body
+    style="
+      background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGNvbmNlcnR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+      background-size: cover;
+      background-repeat: no-repeat;
+    "
+  >
+    <h1 style="text-align: center; color: cornsilk">Drum Machine</h1>
+    <div
+      class="container"
+      id="drum-machine"
+      style="display: flex; justify-content: center; text-align: center"
+    >
+      <div
+        class="row"
+        style="width: 660px; padding: 10px; background-color: blueviolet"
+      >
+        <div class="col-sm-6">
+          <div class="row" style="margin-bottom: 10px">
+            <div class="col-4">
+              <button
+                type="button"
+                class="drum-pad"
+                id="drum-pad-1"
+                onclick="playDrum('Q')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Heater-1.mp3" class="clip" id="Q"></audio>
+                Q
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-2"
+                onclick="playDrum('W')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Heater-2.mp3" class="clip" id="W"></audio>
+                W
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-3"
+                onclick="playDrum('E')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Heater-3.mp3" class="clip" id="E"></audio>
+                E
+              </button>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px">
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-4"
+                onclick="playDrum('A')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Heater-4.mp3" class="clip" id="A"></audio>
+                A
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-5"
+                onclick="playDrum('S')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Clap.mp3" class="clip" id="S"></audio>
+                S
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-6"
+                onclick="playDrum('D')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Open-HH.mp3" class="clip" id="D"></audio>
+                D
+              </button>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px">
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-7"
+                onclick="playDrum('Z')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Kick-n-Hat.mp3" class="clip" id="Z"></audio>
+                Z
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-8"
+                onclick="playDrum('X')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Kick.mp3" class="clip" id="X"></audio>
+                X
+              </button>
+            </div>
+            <div class="col-4">
+              <button
+                class="drum-pad"
+                id="drum-pad-9"
+                onclick="playDrum('C')"
+                style="width: 100px; height: 60px"
+              >
+                <audio src="./clip/Closed-HH.mp3" class="clip" id="C"></audio>
+                C
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6" style="padding: 80px">
+          <div id="display" style="color: cornsilk; font-size: 25px"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
